@@ -2,6 +2,9 @@ import { FC } from 'react';
 
 export const LandingPage: FC = () => {
   return (
-    <div>LandingPage</div>
+    <div>
+      LandingPage
+      <button>holi</button>
+    </div>
   );
 }
