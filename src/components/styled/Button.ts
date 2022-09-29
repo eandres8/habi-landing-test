@@ -12,9 +12,9 @@ export const Button = styled.button(({ theme }) => `
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-    box-shadow: 0px 3px 6px 2px rgba(148,148,148,0.68);
-    -webkit-box-shadow: 0px 3px 6px 2px rgba(148,148,148,0.68);
-    -moz-box-shadow: 0px 3px 6px 2px rgba(148,148,148,0.68);
+    box-shadow: ${theme.shadow};
+    -webkit-box-shadow: ${theme.shadow};
+    -moz-box-shadow: ${theme.shadow};
 `);
 
 Button.defaultProps = {

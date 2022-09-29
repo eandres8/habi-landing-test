@@ -10,4 +10,5 @@ export const THEME = {
         dark: COLOR_DARK,
         grey: COLOR_GREY,
     },
+    shadow: '0px 3px 6px 2px rgba(148,148,148,0.68)',
 };
