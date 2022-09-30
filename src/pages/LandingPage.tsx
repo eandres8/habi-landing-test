@@ -1,12 +1,15 @@
-import ImageHabi from '../assets/habi.svg';
-import { HeroSection, Navbar, Button, HeroParagraph, HeroTitle } from '../components/styled';
+import { useNavigate } from 'react-router-dom';
+
+import { HeroSection, Button, HeroParagraph, HeroTitle } from '../components/styled';
+import { PageContainer } from '../components/shared/';
 
 export const LandingPage: React.FC = () => {
+  const navigate = useNavigate();
+
+  const startSell = () => navigate('/names');
+
   return (
-    <div>
-      <Navbar>
-        <img src={ImageHabi} alt="habi Icon" />
-      </Navbar>
+    <PageContainer>
       <HeroSection>
         <div className='hero-content d-flex justify-content-center align-items-center flex-direction-column'>
           <HeroTitle>Compramos tu vivienda en 10 días</HeroTitle>
@@ -16,10 +19,10 @@ export const LandingPage: React.FC = () => {
             hará una oferta.
           </HeroParagraph>
           <div style={{ marginTop: 15 }}>
-            <Button width="400px">Vender</Button>
+            <Button width="400px" onClick={startSell}>Vender</Button>
           </div>
         </div>
       </HeroSection>
-    </div>
+    </PageContainer>
   );
 };
