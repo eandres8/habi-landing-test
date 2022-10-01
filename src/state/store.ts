@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { formSlice } from './modules/form-slice';
-import { FormState } from './modules/form.types';
+import { FormState } from './modules/form-state.types';
 
 export type AppState = {
     form: FormState;

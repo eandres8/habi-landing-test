@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { AppState } from '../state';
 import { setFormValue } from '../state/modules/form-slice';
-import { FormState } from '../state/modules/form.types';
+import { FormState } from '../state/modules/form-state.types';
 
 export const useFormState = () => {
   const dispatch = useDispatch();

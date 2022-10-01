@@ -1,4 +1,4 @@
-import { FormType } from '../../interfaces/form';
+import { FormType } from '../../interfaces/form.type';
 
 export type FormState = {
     data: { [key: string]: any },

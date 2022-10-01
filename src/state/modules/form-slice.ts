@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { FormState } from './form.types';
+import { FormState } from './form-state.types';
 
 const initialState: FormState = {
     data: {},

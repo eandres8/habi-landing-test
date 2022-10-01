@@ -1,12 +1,89 @@
 {
     "paths": [
         {
-            "url": "full-name",
-            "input-type": "text"
+            "type": "text",
+            "pathname": "nombres-apellidos",
+            "description": "Registra los datos de tu vivienda",
+            "label": "Nombres y Apellidos",
+            "name": "fullName",
+            "placeholder": "Jhon Doe"
         },
         {
-            "url": "email",
-            "input-type": "email"
+            "type": "email",
+            "pathname": "correo-personal",
+            "description": "Registra los datos de tu vivienda",
+            "label": "Correo",
+            "name": "email",
+            "placeholder": "example@habi.com"
+        },
+        {
+            "type": "text",
+            "pathname": "direccion-apartamento",
+            "description": "Registra los datos de tu vivienda",
+            "label": "Dirección del inmueble",
+            "name": "address",
+            "placeholder": "cll fake 123"
+        },
+        {
+            "type": "range",
+            "pathname": "numero-piso",
+            "description": "Registra los datos de tu vivienda",
+            "label": "Piso",
+            "name": "floor",
+            "min": 1,
+            "max": 50,
+            "default": 1
+        },
+        {
+            "type": "checkbox",
+            "pathname": "adicionales",
+            "description": "Registra los datos de tu vivienda",
+            "label": "Marque si cuenta con alguna opción",
+            "name": "aditionals",
+            "options": [
+                { "value": "bbq", "text": "Zona BBQ" },
+                { "value": "community-hall", "text": "Salón Comunal" },
+                { "value": "park-games", "text": "Parque de Juegos" }
+            ]
+        },
+        {
+            "type": "toggle",
+            "pathname": "parqueadero",
+            "description": "Registra los datos de tu vivienda",
+            "label": "",
+            "name": "parking-toogle",
+            "options": [
+                { "name": "parking", "value": false, "text": "Tiene Parqueadero" },
+                { "name": "covered-parking", "value": false, "text": "Tiene Parqueadero Cubierto", "dependence": "parking" }
+            ]
+        },
+        {
+            "type": "currency",
+            "pathname": "valor-apartamento",
+            "description": "Registra los datos de tu vivienda",
+            "label": "Valor del apartamento",
+            "name": "price",
+            "placeholder": "$ 00.00",
+            "currency": "COP"
+        },
+        {
+            "type": "file",
+            "pathname": "foto-apartamento",
+            "description": "Registra los datos de tu vivienda",
+            "label": "Foto del apartamento",
+            "name": "photo",
+            "files": ["png", "jpg", "gif"],
+            "size": "10MB"
+        },
+        {
+            "type": "toggle",
+            "pathname": "parqueadero",
+            "description": "Registra los datos de tu vivienda",
+            "label": "",
+            "name": "has-elevator",
+            "options": [
+                { "name": "has-elevator", "value": false, "text": "Tiene ascensor" }
+            ]
         }
     ]
 }
