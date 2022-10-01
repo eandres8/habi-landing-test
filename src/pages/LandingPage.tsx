@@ -8,7 +8,7 @@ export const LandingPage: React.FC = () => {
   const navigate = useNavigate();
   const { pathList } = useManageUrls();
 
-  const startSell = () => navigate(`/${pathList[0]}`);
+  const startSell = () => navigate(`/${pathList.at(0)}`);
 
   return (
     <PageContainer>

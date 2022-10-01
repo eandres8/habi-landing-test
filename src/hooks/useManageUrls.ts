@@ -1,26 +1,11 @@
-import urls from '../routes.json';
-
-type InputType = 'text' | 'email' | 'textArea' | 'select' | 'checkbox';
-
-type PathType = {
-    url: string;
-    inputType: InputType;
-};
-
-type UrlMapper = PathType & {
-    step: number;
-};
+import urls from '../path-routes.json';
+import { JsonData } from '../interfaces/json-data.type';
+import { mapJsonRoutes } from '../utils/map-json-routes';
 
 export const useManageUrls = () => {
-    const { paths } = urls;
+    const pathDataList: JsonData[] = mapJsonRoutes(urls.paths);
 
-    const pathDataList = () => paths.map((path, idx) => ({
-        url: path.url,
-        inputType: path['input-type'],
-        step: ++idx,
-    }));
-
-    const pathList = () => paths.map(path => path.url);
+    const pathList = () => pathDataList.map(path => path.pathname);
 
     const next = (pathname: string) => {
         const listItems = pathList();
@@ -38,7 +23,7 @@ export const useManageUrls = () => {
     
     return {
         pathList: pathList(),
-        pathDataList: pathDataList(),
+        pathDataList,
         next,
         previous,
     };

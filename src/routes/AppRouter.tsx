@@ -9,8 +9,8 @@ export const AppRouter: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path={`/${pathList[0]}`} element={<FormNamesPage />} />
-      <Route path={`/${pathList[1]}`} element={<FormEmailPage />} />
+      <Route path={`/${pathList.at(0)}`} element={<FormNamesPage />} />
+      <Route path={`/${pathList.at(1)}`} element={<FormEmailPage />} />
 
       <Route
         path="/*"

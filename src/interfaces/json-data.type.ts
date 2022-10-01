@@ -1,9 +1,9 @@
-type OptionList = {
+export type OptionList = {
     value: string;
     text: string;
 };
 
-type FieldStructure = {
+export type FieldStructure = {
     pathname: string;
     description?: string;
     label?: string;
@@ -11,42 +11,42 @@ type FieldStructure = {
     placeholder?: string;
 };
 
-type TextFieldType = FieldStructure & {
+export type TextFieldType = FieldStructure & {
     type: 'text' | 'email';
 };
 
-type RangeFieldType = FieldStructure & {
+export type RangeFieldType = FieldStructure & {
     type: 'range';
     min: number;
     max: number;
     default?: number;
 };
 
-type CheckboxFieldType = FieldStructure & {
+export type CheckboxFieldType = FieldStructure & {
     type: 'checkbox';
     options: OptionList[];
     default?: string;
 };
 
-type CurrencyFieldType = FieldStructure & {
+export type CurrencyFieldType = FieldStructure & {
     type: 'currency';
     currency: string;
 };
 
-type FileFieldType = FieldStructure & {
+export type FileFieldType = FieldStructure & {
     type: 'file';
     files: string[];
     size: string;
 };
 
-type ToggleOption = {
+export type ToggleOption = {
     name: string;
     value: boolean;
     text: string;
     dependence?: string;
 };
 
-type ToggleFieldType = FieldStructure & {
+export type ToggleFieldType = FieldStructure & {
     type: 'toggle';
     options: ToggleOption[];
 };
