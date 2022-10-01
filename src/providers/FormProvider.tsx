@@ -2,7 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 import { useFormState } from '../hooks/useFormState';
 import { useManageUrls } from '../hooks/useManageUrls';
-import { FormProviderProps, NextStepType } from './FormProvider.types';
+import { FormProviderProps } from './FormProvider.types';
 
 
 export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
@@ -10,7 +10,7 @@ export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
     const location = useLocation();
     const pathname = location.pathname.replace('/', '');
     
-    const { next, previous } = useManageUrls();
+    const { next, previous, getDataFromUrl } = useManageUrls();
     const { setDataToNextStep } = useFormState();
 
     const handleNextStep = (value: any) => {
@@ -18,7 +18,7 @@ export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
         navigate(`/${next(pathname)}`);
     };
 
-    const handlePreviusStep = () => {
+    const handlePreviousStep = () => {
         navigate(`/${previous(pathname)}`);
     };
 
@@ -28,7 +28,8 @@ export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
                 navigate,
                 pathname,
                 next: handleNextStep,
-                previus: handlePreviusStep,
+                previous: handlePreviousStep,
+                data: getDataFromUrl(pathname),
             })}
         </>
     );

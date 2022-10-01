@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { useManageUrls } from '../hooks/useManageUrls';
 
-import { LandingPage, FormNamesPage, FormEmailPage } from '../pages';
+import { LandingPage, FormNamesPage } from '../pages';
 
 export const AppRouter: React.FC = () => {
   const { pathList } = useManageUrls();
@@ -9,8 +9,9 @@ export const AppRouter: React.FC = () => {
   return (
     <Routes>
       <Route path="/" element={<LandingPage />} />
-      <Route path={`/${pathList.at(0)}`} element={<FormNamesPage />} />
-      <Route path={`/${pathList.at(1)}`} element={<FormEmailPage />} />
+      {
+        pathList.map(pathname => <Route key={pathname} path={`/${pathname}`} element={<FormNamesPage />} />)
+      }
 
       <Route
         path="/*"

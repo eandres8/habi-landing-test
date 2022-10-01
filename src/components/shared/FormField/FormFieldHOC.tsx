@@ -1,8 +1,8 @@
 import { createContext } from 'react';
 
-interface FormFieldProps {
-    label?: string;
-    name: string;
+import { JsonData } from '../../../interfaces/json-data.type';
+
+type FormFieldProps = JsonData & {
     onChange: (event: any) => void;
     value: any;
 }

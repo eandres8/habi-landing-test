@@ -50,7 +50,7 @@
             "type": "toggle",
             "pathname": "parqueadero",
             "description": "Registra los datos de tu vivienda",
-            "label": "",
+            "label": "Tiene Parqueadero",
             "name": "parking-toogle",
             "options": [
                 { "name": "parking", "value": false, "text": "Tiene Parqueadero" },
@@ -79,7 +79,7 @@
             "type": "toggle",
             "pathname": "parqueadero",
             "description": "Registra los datos de tu vivienda",
-            "label": "",
+            "label": "Tiene elevador",
             "name": "has-elevator",
             "options": [
                 { "name": "has-elevator", "value": false, "text": "Tiene ascensor" }

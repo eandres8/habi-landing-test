@@ -1,4 +1,5 @@
 import { NavigateFunction } from 'react-router-dom';
+import { JsonData } from '../interfaces/json-data.type';
 
 export type FormFieldData = {
     pathname: string;
@@ -16,8 +17,9 @@ export type NextStepType = {
 export interface ChildrenProps {
     navigate: NavigateFunction;
     next: (props: NextStepType) => void;
-    previus: () => void;
+    previous: () => void;
     pathname: string;
+    data: JsonData,
 }
 
 export interface FormProviderProps {

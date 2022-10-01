@@ -20,11 +20,16 @@ export const useManageUrls = () => {
 
         return idx >= 0 ? listItems.at(idx - 1) : null;
     };
+
+    const getDataFromUrl = (pathname: string) => {
+        return pathDataList.find(data => data.pathname === pathname)!;
+    };
     
     return {
         pathList: pathList(),
         pathDataList,
         next,
         previous,
+        getDataFromUrl,
     };
 }

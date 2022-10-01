@@ -5,33 +5,32 @@ import { FormField } from '../components/shared';
 import { FormProvider } from '../providers/FormProvider';
 
 export const FormNamesPage: React.FC = () => {
-  const [test, setTest] = useState<any>('');
+  const [value, setValue] = useState<any>('');
 
   const onNextStep = (callback: Function) => {
-    return () => callback(test);
+    return () => callback(value);
   };
 
   return (
     <PageContainer>
       <PageContainer.Content>
         <FormProvider>
-          {({ next, pathname }) => (
+          {({ next, previous, data }) => (
             <>
               <article className="d-flex">
                 <section
                   style={{ width: '50%', margin: '1rem', padding: '1rem' }}
                 >
-                  <h2>Registra los datos de tu vivienda</h2>
+                  <h2>{data.description}</h2>
                   <ProgressBar value={2} max={9} />
                   <FormField
                     formField={{
-                      name: pathname,
-                      onChange: (event) => setTest(event.target.value),
-                      value: test,
-                      label: 'Nombre y Apellido',
+                      ...data,
+                      onChange: (event) => setValue(event.target.value),
+                      value: value,
                     }}
                   >
-                    <FormField.Input placeholder="Jhon Doe" />
+                    <FormField.Control />
                   </FormField>
                 </section>
                 <section
@@ -42,7 +41,7 @@ export const FormNamesPage: React.FC = () => {
                     padding: '1rem',
                   }}
                 >
-                  <SummaryForm />
+                  <SummaryForm data={{}} />
                 </section>
               </article>
               <article>
@@ -50,7 +49,7 @@ export const FormNamesPage: React.FC = () => {
                   className="d-flex justify-content-center"
                   style={{ width: '100%' }}
                 >
-                  <button>previus</button>
+                  <button onClick={previous}>previous</button>
                   <button onClick={onNextStep(next)}>
                     next
                   </button>
