@@ -1,0 +1,12 @@
+{
+    "paths": [
+        {
+            "url": "full-name",
+            "input-type": "text"
+        },
+        {
+            "url": "email",
+            "input-type": "email"
+        }
+    ]
+}

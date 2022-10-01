@@ -1,21 +1,34 @@
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 
-interface ChildrenProps {
-    navigate: NavigateFunction;
-}
+import { useFormState } from '../hooks/useFormState';
+import { useManageUrls } from '../hooks/useManageUrls';
+import { FormProviderProps, NextStepType } from './FormProvider.types';
 
-interface Props {
-    children: (props: ChildrenProps) => React.ReactNode;
-}
 
-export const FormProvider: React.FC<Props> = ({ children }) => {
+export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const pathname = location.pathname.replace('/', '');
+    
+    const { next, previous } = useManageUrls();
+    const { setDataToNextStep } = useFormState();
 
+    const handleNextStep = (value: any) => {
+        setDataToNextStep(pathname, value);
+        navigate(`/${next(pathname)}`);
+    };
+
+    const handlePreviusStep = () => {
+        navigate(`/${previous(pathname)}`);
+    };
 
     return (
         <>
             {children({
                 navigate,
+                pathname,
+                next: handleNextStep,
+                previus: handlePreviusStep,
             })}
         </>
     );

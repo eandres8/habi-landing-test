@@ -2,11 +2,13 @@ import { useNavigate } from 'react-router-dom';
 
 import { HeroSection, Button, HeroParagraph, HeroTitle } from '../components/styled';
 import { PageContainer } from '../components/shared/';
+import { useManageUrls } from '../hooks/useManageUrls';
 
 export const LandingPage: React.FC = () => {
   const navigate = useNavigate();
+  const { pathList } = useManageUrls();
 
-  const startSell = () => navigate('/names');
+  const startSell = () => navigate(`/${pathList[0]}`);
 
   return (
     <PageContainer>
