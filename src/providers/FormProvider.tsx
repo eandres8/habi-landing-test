@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { useFormState } from '../hooks/useFormState';
@@ -8,13 +9,16 @@ import { FormProviderProps } from './FormProvider.types';
 export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
     const navigate = useNavigate();
     const location = useLocation();
+    const [value, setValue] = useState<any>('');
+
     const pathname = location.pathname.replace('/', '');
     
     const { next, previous, getDataFromUrl } = useManageUrls();
     const { setDataToNextStep } = useFormState();
 
-    const handleNextStep = (value: any) => {
+    const handleNextStep = () => {
         setDataToNextStep(pathname, value);
+        setValue('');
         navigate(`/${next(pathname)}`);
     };
 
@@ -27,9 +31,11 @@ export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
             {children({
                 navigate,
                 pathname,
-                next: handleNextStep,
-                previous: handlePreviousStep,
+                nextTo: handleNextStep,
+                previousTo: handlePreviousStep,
                 data: getDataFromUrl(pathname),
+                value,
+                setValue,
             })}
         </>
     );

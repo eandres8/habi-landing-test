@@ -1,21 +1,13 @@
-import { useState } from 'react';
-
 import { PageContainer, ProgressBar, SummaryForm } from '../components/shared';
 import { FormField } from '../components/shared';
 import { FormProvider } from '../providers/FormProvider';
 
 export const FormNamesPage: React.FC = () => {
-  const [value, setValue] = useState<any>('');
-
-  const onNextStep = (callback: Function) => {
-    return () => callback(value);
-  };
-
   return (
     <PageContainer>
       <PageContainer.Content>
         <FormProvider>
-          {({ next, previous, data }) => (
+          {({ nextTo, previousTo, data, value, setValue }) => (
             <>
               <article className="d-flex">
                 <section
@@ -26,8 +18,8 @@ export const FormNamesPage: React.FC = () => {
                   <FormField
                     formField={{
                       ...data,
-                      onChange: (event) => setValue(event.target.value),
-                      value: value,
+                      onChange: setValue,
+                      value,
                     }}
                   >
                     <FormField.Control />
@@ -49,8 +41,8 @@ export const FormNamesPage: React.FC = () => {
                   className="d-flex justify-content-center"
                   style={{ width: '100%' }}
                 >
-                  <button onClick={previous}>previous</button>
-                  <button onClick={onNextStep(next)}>
+                  <button onClick={previousTo}>previous</button>
+                  <button onClick={nextTo}>
                     next
                   </button>
                 </section>

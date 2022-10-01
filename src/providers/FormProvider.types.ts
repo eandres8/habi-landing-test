@@ -9,17 +9,19 @@ export type FormFieldData = {
 };
 
 export type NextStepType = {
-    pathname: string,
-    key: string,
-    value: any,
+    pathname: string;
+    key: string;
+    value: any;
 };
 
 export interface ChildrenProps {
     navigate: NavigateFunction;
-    next: (props: NextStepType) => void;
-    previous: () => void;
+    nextTo: () => void;
+    previousTo: () => void;
     pathname: string;
-    data: JsonData,
+    data: JsonData;
+    value: any;
+    setValue: (value: any) => void;
 }
 
 export interface FormProviderProps {

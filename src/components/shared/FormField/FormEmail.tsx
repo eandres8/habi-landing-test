@@ -1,4 +1,3 @@
-import { ErrorResponse } from '@remix-run/router';
 import { useContext, useState } from 'react';
 
 import { REGEX_EMAIL } from '../../../constants/regex';
@@ -10,17 +9,14 @@ export const FormEmail: React.FC = () => {
     const [error, setError] = useState('');
 
     const handleEmailValidate = (event: React.ChangeEvent<HTMLInputElement>) => {
-        event.persist();
-        const { value, name } = event.target;
+        const { value: inputValue } = event.target;
 
-        const errorMessage = value.toLowerCase().match(REGEX_EMAIL)
+        const errorMessage = inputValue.toLowerCase().match(REGEX_EMAIL)
             ? ''
             : 'No es un correo válido';
-        
+            
         setError(errorMessage);
-        console.log({ event });
-        console.log({ errorMessage });
-        onChange(event);
+        onChange(inputValue);
     }
 
     return <>
