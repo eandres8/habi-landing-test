@@ -55,8 +55,8 @@
             "pathname": "parqueadero",
             "description": "Registra los datos de tu vivienda",
             "label": "Tiene Parqueadero",
-            "name": "parking-toogle",
-            "default": [false, false],
+            "name": "parking-toggle",
+            "default": {},
             "options": [
                 { "name": "parking", "value": false, "text": "Tiene Parqueadero" },
                 { "name": "covered-parking", "value": false, "text": "Tiene Parqueadero Cubierto", "dependence": "parking" }

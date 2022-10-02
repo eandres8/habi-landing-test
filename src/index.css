@@ -24,6 +24,10 @@ body {
   display: flex;
 }
 
+.d-none {
+  display: none;
+}
+
 .m-1 {
   margin: 0.5rem;
 }

@@ -5,6 +5,7 @@ import { FormInput } from './FormInput';
 import { FormEmail } from './FormEmail';
 import { FormRange } from './FormRange';
 import { FormCheckbox } from './FormCheckbox';
+import { FormToggleSwitch } from './FormToggleSwitch';
 
 export const FormControl: React.FC = () => {
   const { type } = useContext(FormFieldContext);
@@ -16,7 +17,7 @@ export const FormControl: React.FC = () => {
     checkbox: () => <FormCheckbox />,
     currency: () => <></>,
     file: () => <></>,
-    toggle: () => <></>,
+    toggle: () => <FormToggleSwitch />,
   };
   
   return (
