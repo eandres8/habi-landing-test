@@ -7,6 +7,7 @@ import { FormRange } from './FormRange';
 import { FormCheckbox } from './FormCheckbox';
 import { FormToggleSwitch } from './FormToggleSwitch';
 import { FormCurrency } from './FormCurrency';
+import { FormFile } from './FormFile';
 
 export const FormControl: React.FC = () => {
   const { type } = useContext(FormFieldContext);
@@ -17,7 +18,7 @@ export const FormControl: React.FC = () => {
     range: () => <FormRange />,
     checkbox: () => <FormCheckbox />,
     currency: () => <FormCurrency />,
-    file: () => <></>,
+    file: () => <FormFile />,
     toggle: () => <FormToggleSwitch />,
   };
   

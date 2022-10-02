@@ -5,3 +5,4 @@ export { Navbar } from './Navbar';
 export { HeroSection, HeroParagraph, HeroTitle } from './HeroSection';
 export { Paragraph } from './Paragraph';
 export { StepButton } from './StepButton';
+export { ContentFile } from './InputFile';

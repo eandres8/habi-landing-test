@@ -78,13 +78,13 @@
             "description": "Registra los datos de tu vivienda",
             "label": "Foto del apartamento",
             "name": "photo",
-            "files": ["png", "jpg", "gif"],
+            "files": ["image/png", "image/jpeg", "image/png"],
             "size": "10MB",
             "default": null
         },
         {
             "type": "toggle",
-            "pathname": "parqueadero",
+            "pathname": "elevador",
             "description": "Registra los datos de tu vivienda",
             "label": "Tiene elevador",
             "name": "has-elevator",
