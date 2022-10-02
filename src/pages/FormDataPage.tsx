@@ -1,5 +1,6 @@
 import { PageContainer, ProgressBar, SummaryForm } from '../components/shared';
 import { FormField } from '../components/shared';
+import { StepButton } from '../components/styled';
 import { FormProvider } from '../providers/FormProvider';
 
 export const FormNamesPage: React.FC = () => {
@@ -41,10 +42,10 @@ export const FormNamesPage: React.FC = () => {
                   className="d-flex justify-content-center"
                   style={{ width: '100%' }}
                 >
-                  <button onClick={previousTo}>previous</button>
-                  <button onClick={nextTo}>
-                    next
-                  </button>
+                  {currentStep > 1 && <StepButton className="m-2" onClick={previousTo}>Anterior</StepButton>}
+                  <StepButton className="m-2" onClick={nextTo}>
+                    Siguiente
+                  </StepButton>
                 </section>
               </article>
             </>
