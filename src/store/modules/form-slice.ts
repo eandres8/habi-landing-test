@@ -17,7 +17,12 @@ export const formSlice = createSlice({
 
             return state;
         },
+        setInitState: ( state, { payload } ) => {
+            state.data = { ...payload.data, ...state.data };
+
+            return state;
+        },
     },
 });
 
-export const { setFormValue } = formSlice.actions;
+export const { setFormValue, setInitState } = formSlice.actions;

@@ -14,7 +14,7 @@ export const FormEmail: React.FC = () => {
         const errorMessage = inputValue.toLowerCase().match(REGEX_EMAIL)
             ? ''
             : 'No es un correo válido';
-            
+
         setError(errorMessage);
         onChange(inputValue);
     }

@@ -6,7 +6,8 @@
             "description": "Registra los datos de tu vivienda",
             "label": "Nombres y Apellidos",
             "name": "fullName",
-            "placeholder": "Jhon Doe"
+            "placeholder": "Jhon Doe",
+            "default": ""
         },
         {
             "type": "email",
@@ -14,7 +15,8 @@
             "description": "Registra los datos de tu vivienda",
             "label": "Correo",
             "name": "email",
-            "placeholder": "example@habi.com"
+            "placeholder": "example@habi.com",
+            "default": ""
         },
         {
             "type": "text",
@@ -22,7 +24,8 @@
             "description": "Registra los datos de tu vivienda",
             "label": "Dirección del inmueble",
             "name": "address",
-            "placeholder": "cll fake 123"
+            "placeholder": "cll fake 123",
+            "default": ""
         },
         {
             "type": "range",
@@ -40,6 +43,7 @@
             "description": "Registra los datos de tu vivienda",
             "label": "Marque si cuenta con alguna opción",
             "name": "aditionals",
+            "default": [false, false, false],
             "options": [
                 { "value": "bbq", "text": "Zona BBQ" },
                 { "value": "community-hall", "text": "Salón Comunal" },
@@ -52,6 +56,7 @@
             "description": "Registra los datos de tu vivienda",
             "label": "Tiene Parqueadero",
             "name": "parking-toogle",
+            "default": [false, false],
             "options": [
                 { "name": "parking", "value": false, "text": "Tiene Parqueadero" },
                 { "name": "covered-parking", "value": false, "text": "Tiene Parqueadero Cubierto", "dependence": "parking" }
@@ -64,7 +69,8 @@
             "label": "Valor del apartamento",
             "name": "price",
             "placeholder": "$ 00.00",
-            "currency": "COP"
+            "currency": "COP",
+            "default": 0
         },
         {
             "type": "file",
@@ -73,7 +79,8 @@
             "label": "Foto del apartamento",
             "name": "photo",
             "files": ["png", "jpg", "gif"],
-            "size": "10MB"
+            "size": "10MB",
+            "default": null
         },
         {
             "type": "toggle",
@@ -81,6 +88,7 @@
             "description": "Registra los datos de tu vivienda",
             "label": "Tiene elevador",
             "name": "has-elevator",
+            "default": [false],
             "options": [
                 { "name": "has-elevator", "value": false, "text": "Tiene ascensor" }
             ]

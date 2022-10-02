@@ -7,14 +7,14 @@ export const FormNamesPage: React.FC = () => {
     <PageContainer>
       <PageContainer.Content>
         <FormProvider>
-          {({ nextTo, previousTo, data, value, setValue }) => (
+          {({ nextTo, previousTo, data, value, setValue, maxStep, currentStep }) => (
             <>
               <article className="d-flex">
                 <section
                   style={{ width: '50%', margin: '1rem', padding: '1rem' }}
                 >
                   <h2>{data.description}</h2>
-                  <ProgressBar value={2} max={9} />
+                  <ProgressBar value={currentStep} max={maxStep} />
                   <FormField
                     formField={{
                       ...data,

@@ -22,6 +22,8 @@ export interface ChildrenProps {
     data: JsonData;
     value: any;
     setValue: (value: any) => void;
+    maxStep: number;
+    currentStep: number;
 }
 
 export interface FormProviderProps {

@@ -24,6 +24,10 @@ export const useManageUrls = () => {
     const getDataFromUrl = (pathname: string) => {
         return pathDataList.find(data => data.pathname === pathname)!;
     };
+
+    const defaultData = (): Record<string, any> => pathDataList.reduce((prev, curr) => {
+        return { ...prev, [curr.name]: curr.default };
+    }, {});
     
     return {
         pathList: pathList(),
@@ -31,5 +35,6 @@ export const useManageUrls = () => {
         next,
         previous,
         getDataFromUrl,
+        defaultData,
     };
 }

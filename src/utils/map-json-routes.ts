@@ -17,6 +17,7 @@ const mapText = (item: any): TextFieldType => ({
     label: item.label || '',
     name: item.name || '',
     placeholder: item.placeholder || '',
+    default: item.default || '',
 });
 
 const mapRange = (item: any): RangeFieldType => ({
@@ -46,6 +47,7 @@ const mapCheckbox = (item: any): CheckboxFieldType => ({
     label: item.label || '',
     name: item.name || '',
     options: mapCheckboxOption(item.options),
+    default: [],
 });
 
 const mapTootleOption = (options: any): ToggleOption[] => {
@@ -66,6 +68,7 @@ const mapToggle = (item: any): ToggleFieldType => ({
     label: item.label || '',
     name: item.name || '',
     options: mapTootleOption(item.options),
+    default: [],
 });
 
 const mapCurrency = (item: any): CurrencyFieldType => ({
@@ -76,6 +79,7 @@ const mapCurrency = (item: any): CurrencyFieldType => ({
     name: item.name || '',
     placeholder: item.placeholder || '',
     currency: item.currency || '',
+    default: 0,
 });
 
 const mapFileOption = (options: any): string[] => {
@@ -92,6 +96,7 @@ const mapFile = (item: any): FileFieldType => ({
     name: item.name || '',
     files: mapFileOption(item.files),
     size: item.size || '',
+    default: null,
 });
 
 const mapDataOption: Record<string, Function> = {

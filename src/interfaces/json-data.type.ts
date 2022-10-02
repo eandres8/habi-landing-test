@@ -13,6 +13,7 @@ export type FieldStructure = {
 
 export type TextFieldType = FieldStructure & {
     type: 'text' | 'email';
+    default?: string;
 };
 
 export type RangeFieldType = FieldStructure & {
@@ -25,18 +26,20 @@ export type RangeFieldType = FieldStructure & {
 export type CheckboxFieldType = FieldStructure & {
     type: 'checkbox';
     options: OptionList[];
-    default?: string;
+    default?: any[];
 };
 
 export type CurrencyFieldType = FieldStructure & {
     type: 'currency';
     currency: string;
+    default?: number;
 };
 
 export type FileFieldType = FieldStructure & {
     type: 'file';
     files: string[];
     size: string;
+    default?: any;
 };
 
 export type ToggleOption = {
@@ -49,6 +52,7 @@ export type ToggleOption = {
 export type ToggleFieldType = FieldStructure & {
     type: 'toggle';
     options: ToggleOption[];
+    default?: any[];
 };
 
 export type JsonData = TextFieldType | RangeFieldType | CheckboxFieldType | CurrencyFieldType | FileFieldType | ToggleFieldType;

@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import { useFormState } from '../hooks/useFormState';
 import { useManageUrls } from '../hooks/useManageUrls';
 import { FormProviderProps } from './FormProvider.types';
-
 
 export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
     const navigate = useNavigate();
@@ -13,18 +12,33 @@ export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
 
     const pathname = location.pathname.replace('/', '');
     
-    const { next, previous, getDataFromUrl } = useManageUrls();
-    const { setDataToNextStep } = useFormState();
+    const { next, previous, getDataFromUrl, defaultData, pathList } = useManageUrls();
+    const { setDataToNextStep, doInitState, storeData } = useFormState();
+
+    const setScreenData = (path: string) => {
+        const nextData = getDataFromUrl(path);
+        const valueData = storeData[nextData.name];
+
+        setValue(valueData);
+    }
 
     const handleNextStep = () => {
-        setDataToNextStep(pathname, value);
-        setValue('');
-        navigate(`/${next(pathname)}`);
+        const nextData = getDataFromUrl(pathname);
+        const nextStep = next(pathname);
+        setDataToNextStep(nextData.name, value);
+        setScreenData(nextStep!);
+        navigate(`/${nextStep}`);
     };
 
     const handlePreviousStep = () => {
-        navigate(`/${previous(pathname)}`);
+        const prevStep = previous(pathname);
+        setScreenData(prevStep!);
+        navigate(`/${prevStep}`);
     };
+
+    useEffect(() => {
+        doInitState(defaultData());
+    }, []);
 
     return (
         <>
@@ -36,6 +50,8 @@ export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
                 data: getDataFromUrl(pathname),
                 value,
                 setValue,
+                maxStep: pathList.length,
+                currentStep: pathList.indexOf(pathname) + 1,
             })}
         </>
     );

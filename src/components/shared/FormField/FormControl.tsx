@@ -4,6 +4,7 @@ import { FormFieldContext } from './FormFieldHOC';
 import { FormInput } from './FormInput';
 import { FormEmail } from './FormEmail';
 import { FormRange } from './FormRange';
+import { FormCheckbox } from './FormCheckbox';
 
 export const FormControl: React.FC = () => {
   const { type } = useContext(FormFieldContext);
@@ -12,7 +13,7 @@ export const FormControl: React.FC = () => {
     text: () => <FormInput />,
     email: () => <FormEmail />,
     range: () => <FormRange />,
-    checkbox: () => <></>,
+    checkbox: () => <FormCheckbox />,
     currency: () => <></>,
     file: () => <></>,
     toggle: () => <></>,
