@@ -28,6 +28,10 @@ export const useManageUrls = () => {
     const defaultData = (): Record<string, any> => pathDataList.reduce((prev, curr) => {
         return { ...prev, [curr.name]: curr.default };
     }, {});
+
+    const labelsData = () => pathDataList.reduce((prev, curr) => {
+        return { ...prev, [curr.name]: curr.label };
+    }, {});
     
     return {
         pathList: pathList(),
@@ -36,5 +40,6 @@ export const useManageUrls = () => {
         previous,
         getDataFromUrl,
         defaultData,
+        labelsData: labelsData(),
     };
 }

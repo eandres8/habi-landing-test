@@ -8,7 +8,7 @@ export const FormNamesPage: React.FC = () => {
     <PageContainer>
       <PageContainer.Content>
         <FormProvider>
-          {({ nextTo, previousTo, data, value, setValue, maxStep, currentStep }) => (
+          {({ nextTo, previousTo, data, value, setValue, maxStep, currentStep, storeData, labelsData }) => (
             <>
               <article className="d-flex">
                 <section
@@ -25,8 +25,19 @@ export const FormNamesPage: React.FC = () => {
                   >
                     <FormField.Control />
                   </FormField>
+                  <article>
+                    <section
+                      className="d-flex justify-content-center"
+                      style={{ width: '100%' }}
+                    >
+                      {currentStep > 1 && <StepButton className="m-2" onClick={previousTo}>Anterior</StepButton>}
+                      <StepButton className="m-2" onClick={nextTo}>
+                        Siguiente
+                      </StepButton>
+                    </section>
+                  </article>
                 </section>
-                <section
+                <aside
                   style={{
                     background: '#cccccc',
                     width: '50%',
@@ -34,19 +45,8 @@ export const FormNamesPage: React.FC = () => {
                     padding: '1rem',
                   }}
                 >
-                  <SummaryForm data={{}} />
-                </section>
-              </article>
-              <article>
-                <section
-                  className="d-flex justify-content-center"
-                  style={{ width: '100%' }}
-                >
-                  {currentStep > 1 && <StepButton className="m-2" onClick={previousTo}>Anterior</StepButton>}
-                  <StepButton className="m-2" onClick={nextTo}>
-                    Siguiente
-                  </StepButton>
-                </section>
+                  <SummaryForm data={storeData} labels={labelsData} />
+                </aside>
               </article>
             </>
           )}

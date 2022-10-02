@@ -12,7 +12,7 @@ export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
 
     const pathname = location.pathname.replace('/', '');
     
-    const { next, previous, getDataFromUrl, defaultData, pathList } = useManageUrls();
+    const { next, previous, getDataFromUrl, defaultData, pathList, labelsData } = useManageUrls();
     const { setDataToNextStep, doInitState, storeData } = useFormState();
 
     const setScreenData = (path: string) => {
@@ -52,6 +52,8 @@ export const FormProvider: React.FC<FormProviderProps> = ({ children }) => {
                 setValue,
                 maxStep: pathList.length,
                 currentStep: pathList.indexOf(pathname) + 1,
+                storeData,
+                labelsData,
             })}
         </>
     );

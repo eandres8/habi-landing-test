@@ -24,6 +24,8 @@ export interface ChildrenProps {
     setValue: (value: any) => void;
     maxStep: number;
     currentStep: number;
+    storeData: Record<string, any>;
+    labelsData: Record<string, any>;
 }
 
 export interface FormProviderProps {
