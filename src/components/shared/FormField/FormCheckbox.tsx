@@ -6,9 +6,10 @@ export const FormCheckbox: React.FC = () => {
     const { value, onChange, options } = useContext<any>(FormFieldContext);
 
     const handleChange = (valueOption: string) => {
+
         const data = value.includes(valueOption)
-            ? [...value, valueOption]
-            : value.filter((val: string) => val !== valueOption);
+            ? value.filter((val: string) => val !== valueOption)
+            : [...value, valueOption];
 
         onChange(data);
     };

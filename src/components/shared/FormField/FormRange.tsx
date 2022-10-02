@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 
-import { InputField } from '../../styled';
+import { InputField, StepButton } from '../../styled';
 import { FormFieldContext } from './FormFieldHOC';
 
 export const FormRange: React.FC = () => {
@@ -30,7 +30,7 @@ export const FormRange: React.FC = () => {
 
     return (
         <div>
-            <button onClick={reduce}>-</button>
+            <StepButton onClick={reduce}>-</StepButton>
             <InputField
                 id={name}
                 name={name}
@@ -41,7 +41,7 @@ export const FormRange: React.FC = () => {
                 placeholder={placeholder}
                 onChange={handleChange}
             />
-            <button onClick={add}>+</button>
+            <StepButton onClick={add}>+</StepButton>
         </div>
     );
 }
